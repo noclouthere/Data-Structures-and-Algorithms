@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/miguel.m668/CLionProjects/CardGames/Card.h
+iostream
+-
+
+/Users/miguel.m668/CLionProjects/CardGames/cmake-build-debug/Deck.cpp
+iostream
+-
+vector
+-
+Deck.h
+/Users/miguel.m668/CLionProjects/CardGames/cmake-build-debug/Deck.h
+
+/Users/miguel.m668/CLionProjects/CardGames/cmake-build-debug/Deck.h
+vector
+-
+../Card.h
+/Users/miguel.m668/CLionProjects/CardGames/Card.h
+iostream
+-
+algorithm
+-
+random
+-
+chrono
+-
+
+/Users/miguel.m668/CLionProjects/CardGames/main.cpp
+iostream
+-
+Deck.h
+/Users/miguel.m668/CLionProjects/CardGames/Deck.h
+
