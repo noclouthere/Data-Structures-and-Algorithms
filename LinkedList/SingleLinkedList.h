@@ -28,6 +28,9 @@ public:
     void list_head_remove(Node* &head_ptr);
     void list_remove(Node* previous_ptr);
     void list_clear(Node*& head_ptr);
+    void print_screen(Node* head_ptr, Node::value_type x, Node::value_type y);
+    void rep_remove(Node* head_ptr, Node::value_type a);
+    void reverse(Node*& head_ptr);
 
     Node* list_locate(Node* head_ptr, size_t position);
     const Node* list_locate(const Node* head_ptr, size_t position);

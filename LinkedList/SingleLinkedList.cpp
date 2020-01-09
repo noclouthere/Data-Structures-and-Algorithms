@@ -3,6 +3,7 @@
 //
 
 #include "SingleLinkedList.h"
+using namespace std;
 
 void SingleLinkedList::set_head_ptr(Node *newLink) {
 
@@ -10,8 +11,7 @@ void SingleLinkedList::set_head_ptr(Node *newLink) {
 }
 //list_length returns the length of the linked list
 size_t SingleLinkedList::list_length(const Node *head_ptr) {
-    // Declare a node pointer and point it to the same thing the head_ptr
-    // is pointing to.
+    // Declare a node pointer and point it to the same thing the head_ptr is pointing to.
     const Node* red_ptr_1 = head_ptr;
     // set up a counter
     size_t counter = 0;
@@ -77,8 +77,6 @@ Node *SingleLinkedList::list_search(Node *head_ptr, const Node::value_type &targ
             }
         }
     }
-
-
     return nullptr;
 }
 
@@ -132,4 +130,43 @@ void SingleLinkedList::list_clear(Node *&head_ptr) {
         list_head_remove(head_ptr);
     }
 }
+
+void SingleLinkedList::print_screen(Node *head_ptr, Node::value_type x, Node::value_type y) {
+    //Define x and y node pointers
+    Node* x_ptr;
+    Node* y_ptr;
+    //Set x_ptr and y_ptr = to list_search
+    x_ptr = list_search(head_ptr, x);
+    y_ptr = list_search(head_ptr, y);
+    //Loops through x and y and prints everything in between
+    for (Node* cursor = x_ptr; cursor != y_ptr; cursor = cursor->getLink()) {
+        //prints the nodes to the screen
+        cursor = cursor->getLink();
+    }
+}
+
+void SingleLinkedList::rep_remove(Node *head_ptr, Node::value_type a) {
+    Node* cursor;
+    for (cursor = head_ptr; cursor != NULL; cursor = cursor->getLink()) {
+        //case that the head_ptr data is equal to a
+        if (a == head_ptr->getLink()->getData()){
+            list_head_remove(head_ptr);
+        }
+        //case that the next node data is equal to a
+        else if(a == cursor->getLink()->getData()){
+            list_remove(cursor);
+        }
+    }
+}
+
+void SingleLinkedList::reverse(Node *&head_ptr) {
+    Node* a_ptr;
+    Node* b_ptr;
+    for (Node* cursor = head_ptr; cursor != NULL; cursor->getLink()) {
+        a_ptr = head_ptr;
+        head_ptr ->getLink();
+    }
+}
+
+
 
