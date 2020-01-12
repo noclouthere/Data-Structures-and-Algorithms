@@ -160,12 +160,25 @@ void SingleLinkedList::rep_remove(Node *head_ptr, Node::value_type a) {
 }
 
 void SingleLinkedList::reverse(Node *&head_ptr) {
-    Node* a_ptr;
-    Node* b_ptr;
+    //Sets the cursor to the head_ptr
+    Node* cursor = head_ptr;
+    //Sets the previous pointer to null
+    Node* previous_ptr = NULL;
+    //Sets the next pointer to null
+    Node*  next_ptr = NULL;
+    
     for (Node* cursor = head_ptr; cursor != NULL; cursor->getLink()) {
-        a_ptr = head_ptr;
-        head_ptr ->getLink();
+        //Points to the second node in the list
+        next_ptr = cursor->getLink();
+        //Reverses the current nodes pointer
+        cursor = previous_ptr;
+        //previous_ptr = cursor->getLink();
+
+        //Moves the pointers one step forward
+        previous_ptr = cursor;
+        cursor = next_ptr;
     }
+    head_ptr = previous_ptr;
 }
 
 
