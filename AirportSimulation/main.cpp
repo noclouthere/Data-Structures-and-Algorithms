@@ -57,39 +57,39 @@ void simulate(){
 
 
     //Simulation loop
-        //Simulation loop
     for (uint tt = 0; tt < totalTime; ++tt) {
         //Add planes to departures
         if(rand()%10 < 2){
             departures.push(Plane(3000, tt));
+            cout << "Plane arrived at " << tt << endl;
         }
         if(rand()%10 < 3){
             arrivals.push(Plane(max_landing_queue_time, tt));
+            cout << "Plane arrived at " << tt << endl;
         }
         //If planes in arrivals land the plane or if no planes to land, take off a plane
         if(!arrivals.empty()) {
-            for (int i = 0; i < land_time; ++i) {
-                //Check the plane to land and see if it crashes
-                if (tt - arrivals.front().timeInQ > arrivals.front().fuel) {
-                    planeCrashed++;
-                    arrivals.pop();
-                    cout << "Plane crashed: " << planeCrashed << endl;
-                } else {
-                    //Add planes to departures
-                    if (rand() % 10 < 2) {
-                        departures.push(Plane(3000, tt));
-                        //departures.pop();
-                        //cout << planeLanded << endl;
-                    }
-                    if (rand() % 10 < 3) {
-                        arrivals.push(Plane(max_landing_queue_time, tt));
-                        //arrivals.pop();
-                        //cout << planeLanded << endl;
-                    }
-                    tt++;
-                    cout << "Plane landed: " << planeLanded << endl;
-                }
+            //Check the plane to land and see if it crashes
+            if (tt - arrivals.front().timeInQ > arrivals.front().fuel) {
+                planeCrashed++;
+                arrivals.pop();
+                cout << "Plane crashed: " << planeCrashed << endl;
             }
+            for (int i = 0; i < land_time; ++i) {
+                //Add planes to departures
+                if (rand() % 10 < 2) {
+                    departures.push(Plane(3000, tt));
+                    cout << "Plane arrived at " << tt << endl;
+                }
+                if (rand() % 10 < 3) {
+                    arrivals.push(Plane(max_landing_queue_time, tt));
+                    cout << "Plane arrived at " << tt << endl;
+                }
+                tt++;
+            }
+            planeLanded++;
+            cout << "Plane landed: " << planeLanded << " at time " << tt << endl;
+
         }
         else if(!departures.empty()){
             for (int i = 0; i < takeoff_time; ++tt) {
